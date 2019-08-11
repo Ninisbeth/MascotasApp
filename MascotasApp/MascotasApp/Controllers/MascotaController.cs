@@ -6,12 +6,12 @@ using System.Web.Mvc;
 
 namespace MascotasApp.Controllers
 {
-    public class HomeController : Controller
+    public class MascotaController : Controller
     {
+        // GET: Mascota
         public ActionResult Index()
         {
             return View();
         }
-
     }
 }
