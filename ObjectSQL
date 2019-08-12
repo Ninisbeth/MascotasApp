@@ -1,0 +1,9 @@
+Create database mascotasbd
+USE mascotasbd
+CREATE TABLE Mascota( 
+id int primary key,
+Nombre varchar(50),
+Raza varchar(50),
+Edad int,
+NombreDueno varchar(100)
+)
