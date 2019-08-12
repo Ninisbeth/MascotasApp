@@ -4,7 +4,7 @@
 }
 
 <h2>
-    <a href="#" class="btn btn-success right" style="float:right;">Nuevo</a>
+    <a href="@Url.Action("Nuevo","Mascota")" class="btn btn-success right" style="float:right;">Nuevo</a>
     Listado de Mascotas
 </h2>
 <hr/>
@@ -23,11 +23,11 @@
         @foreach (var mascota in Model)
         {
             <tr>
-                <td>mascota.</td>
-                <td>Trusty</td>
-                <td>Perro</td>
-                <td>5</td>
-                <td>Carlos Perez</td>
+                <td>@mascota.Id</td>
+                <td>@mascota.Nombre</td>
+                <td>@mascota.Raza</td>
+                <td>@mascota.Edad</td>
+                <td>@mascota.NombreDueno</td>
                 <td>
                     <a href="#" class="btn btn-primary">Actualizar</a>
                     <a href="#" class="btn btn-danger">Eliminar</a>
