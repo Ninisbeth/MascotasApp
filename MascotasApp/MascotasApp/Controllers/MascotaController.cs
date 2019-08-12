@@ -21,7 +21,7 @@ namespace MascotasApp.Controllers
             else
             {
                 var listadoMascotas = (List<Mascota>)Session[nombreSesion];
-                return View(listadoMascotas);
+                return View(listadoMascotas.OrderBy(x=> x.Id).ToList());
             }
         }
 
@@ -45,6 +45,31 @@ namespace MascotasApp.Controllers
             Listado.Add(new Mascota { Id = 3, Edad = 1, Nombre = "Paco", NombreDueno = "Maria", Raza = "Loro" });
 
             return Listado;
+        }
+
+        public ActionResult Actualizar(int id)
+        {
+            var listadoMascotas = (List<Mascota>)Session[nombreSesion];
+            var mascota = listadoMascotas.FirstOrDefault(x => x.Id == id);
+            return View(mascota);
+        }
+
+        [HttpPost]
+        public ActionResult Actualizar(Mascota mascota)
+        {
+            var listadoMascotas = (List<Mascota>)Session[nombreSesion];
+            var mascotaActualizar = listadoMascotas.FirstOrDefault(x => x.Id == mascota.Id);
+            listadoMascotas.Remove(mascotaActualizar);
+            listadoMascotas.Add(mascota);
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Eliminar(int id)
+        {
+            var listadoMascotas = (List<Mascota>)Session[nombreSesion];
+            var mascotaActualizar = listadoMascotas.FirstOrDefault(x => x.Id == id);
+            listadoMascotas.Remove(mascotaActualizar);
+            return RedirectToAction("Index");
         }
     }
 }
