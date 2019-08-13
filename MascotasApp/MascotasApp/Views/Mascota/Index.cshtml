@@ -23,14 +23,14 @@
         @foreach (var mascota in Model)
         {
             <tr>
-                <td>@mascota.Id</td>
+                <td>@mascota.id</td>
                 <td>@mascota.Nombre</td>
                 <td>@mascota.Raza</td>
                 <td>@mascota.Edad</td>
                 <td>@mascota.NombreDueno</td>
                 <td>
-                    <a href="@Url.Action("Actualizar","Mascota", new { id = mascota.Id })" class="btn btn-primary">Actualizar</a>
-                    <a href="@Url.Action("Eliminar","Mascota", new { id = mascota.Id })" class="btn btn-danger">Eliminar</a>
+                    <a href="@Url.Action("Actualizar","Mascota", new { id = mascota.id })" class="btn btn-primary">Actualizar</a>
+                    <a href="@Url.Action("Eliminar","Mascota", new { id = mascota.id })" class="btn btn-danger">Eliminar</a>
                 </td>
             </tr>
         }      
